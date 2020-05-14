@@ -13,6 +13,7 @@
   "author": "AnkurAgarwal",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^3.1.2",
     "express": "^4.17.1"
   }
 }
