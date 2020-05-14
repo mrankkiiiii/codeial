@@ -2,8 +2,11 @@ const express = require('express');
 const app = express();
 const port = 8000;
 
-//use express router
+// use for adding layout which installed by npm install express-ejs-layouts
+const expresslayouts = require('express-ejs-layouts');
+app.use(expresslayouts);
 
+//use express router
 app.use('/', require('./routes'));
 
 // set up the view engine after installing the ejs
