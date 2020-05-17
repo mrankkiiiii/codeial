@@ -5,6 +5,14 @@ const port = 8000;
 //include mongoose file
 const db = require('./config/mongoose');
 
+// include cookie parser
+const cookieParser = require('cookie-parser');
+
+// app. use is middleware which is used to passed the form data using express
+app.use(express.urlencoded());
+
+app.use(cookieParser());
+
 // use for adding layout which installed by npm install express-ejs-layouts
 const expresslayouts = require('express-ejs-layouts');
 app.use(expresslayouts);
@@ -26,7 +34,6 @@ app.set('views','./views')
 app.listen(port,function(err){
     if(err){
         console.log(`Error in running the server: ${err}`);
-    }
-    
+    } 
     console.log(`Server is running on port: ${port}`);
 });

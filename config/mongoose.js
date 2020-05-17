@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 //connection to the database
-mongoose.connect('mongodb://localhost/codeial_development');
+mongoose.connect('mongodb://localhost/codeial_development',{useCreateIndex: true, useNewUrlParser: true , useUnifiedTopology: true  });
 
 //acquire the connection to check it is successfull
 const db = mongoose.connection;
