@@ -6,13 +6,23 @@ module.exports.profile = function(req , res){
     });
 }
 
-module.exports.signIn = function(re,res){
+module.exports.signIn = function(req,res){
+    //restrict the signin page when user is signed in
+    if(req.isAuthenticated())
+    {
+        return res.redirect('/users/profile');
+    }
     return res.render('user_sign_in',{
         title: 'Sign In',
     });
 }
 
-module.exports.signUp = function(re,res){
+module.exports.signUp = function(req,res){
+    //restrict the signup page when user is signed in
+    if(req.isAuthenticated())
+    {
+        return res.redirect('/users/profile');
+    }
     return res.render('user_sign_up',{
         title: 'Sign Up',
     });
@@ -43,5 +53,5 @@ module.exports.create = function(req,res){
 
 //Sign in and create a session for the user
 module.exports.createSession = function(req,res){
-    // Todo LAter
+    return res.redirect('/');
 }
