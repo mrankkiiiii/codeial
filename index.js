@@ -16,6 +16,18 @@ const MongoStore = require('connect-mongo')(session);
 // include cookie parser
 const cookieParser = require('cookie-parser');
 
+// adding sass module
+const sassMiddleware = require('node-sass-middleware');
+
+app.use(sassMiddleware({
+    src: '/assets/scss',
+    dest: '/assets/css',
+    debug: true,
+    outputStyle: 'expanded',
+    prefix: '/css'
+}));
+
+
 // app. use is middleware which is used to passed the form data using express
 app.use(express.urlencoded());
 
