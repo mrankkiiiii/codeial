@@ -14,3 +14,6 @@ db.on('err',console.error.bind(console,'Error connecting with database'));
 db.once('open',function(){
     console.log('Successfully connect with database');
 });
+
+//exports the db
+module.exports = db;
