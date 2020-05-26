@@ -1,0 +1,24 @@
+
+    footer{
+        display: flex;
+        color: white;
+        align-items: center;
+        background-color: darken($color: #000000, $amount: 0);
+        height: 40px;
+        font-size: 1.3rem;
+
+        #disclaimer{
+            position: relative;
+            left: 3%;
+        }
+        .links{
+            position: absolute;
+            color: white;
+            right: 8%;
+            text-decoration: none;
+        }
+        a{
+            color: white;
+            text-decoration: none;
+        }
+    }
