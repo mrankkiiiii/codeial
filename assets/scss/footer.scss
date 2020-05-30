@@ -3,6 +3,9 @@
         display: flex;
         color: white;
         align-items: center;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
         background-color: darken($color: #000000, $amount: 0);
         height: 40px;
         font-size: 1.3rem;

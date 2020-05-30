@@ -2,6 +2,9 @@ footer {
   display: flex;
   color: white;
   align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   background-color: black;
   height: 40px;
   font-size: 1.3rem;
