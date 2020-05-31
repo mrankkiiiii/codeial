@@ -1,6 +1,5 @@
 main {
   display: flex;
-  padding-top: 30px;
 }
 
 main #feed-posts {
