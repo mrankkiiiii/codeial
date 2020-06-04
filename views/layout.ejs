@@ -23,27 +23,27 @@
     <%- script %>
 
     <script>
-        <% if(flash.success && flash.success.length > 0) {  %>
-        
-            new Noty({
-                theme: 'sunset',
-                text: '<%=flash.success%>',
-                type: 'success',
-                layout: 'topRight',
-                timeout: 1500
-            }).show();
-        <% } %>
+            <% if(flash.success && flash.success.length > 0) {  %>
+            
+                new Noty({
+                    theme: 'sunset',
+                    text: '<%=flash.success%>',
+                    type: 'success',
+                    layout: 'topRight',
+                    timeout: 1500
+                }).show();
+            <% } %>
 
-        <% if(flash.error && flash.error.length > 0) {  %>
-        
-        new Noty({
-            theme: 'relax',
-            text: '<%=flash.error%>',
-            type: 'error',
-            layout: 'topRight',
-            timeout: 1500
-        }).show();
-    <%} %>
+            <% if(flash.error && flash.error.length > 0) {  %>
+            
+                new Noty({
+                    theme: 'relax',
+                    text: '<%=flash.error%>',
+                    type: 'error',
+                    layout: 'topRight',
+                    timeout: 1500
+                }).show();
+            <%} %>
     </script>
     <script type="text/javascript" src="/js/script.js"></script>
 </body>

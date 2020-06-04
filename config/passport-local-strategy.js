@@ -15,14 +15,11 @@ passport.use(new LocalStrategy({
                 req.flash('error',err);
                 return done(err);
             }
-
             if(!user || user.password != password){
                 req.flash('error','Invalid Username/Password');
                 return done(null,false);
             }
-            
             return done(null,user);
-
         });
     }
 ));
@@ -61,6 +58,5 @@ passport.setAuthenticatedUser = function(req, res, next){
     }
     next();
 }
-
 
 module.exports = passport;

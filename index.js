@@ -1,20 +1,19 @@
 const express = require('express');
+// include cookie parser
+const cookieParser = require('cookie-parser');
 const app = express();
 const port = 8000;
 
+// use for adding layout which installed by npm install express-ejs-layouts
+const expresslayouts = require('express-ejs-layouts');
 //include mongoose file
 const db = require('./config/mongoose');
-
 //used for session cookie
 const session =require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 
 const MongoStore = require('connect-mongo')(session);
-
-
-// include cookie parser
-const cookieParser = require('cookie-parser');
 
 // adding sass module
 const sassMiddleware = require('node-sass-middleware');
@@ -37,12 +36,10 @@ app.use(express.urlencoded());
 
 app.use(cookieParser());
 
-// use for adding layout which installed by npm install express-ejs-layouts
-const expresslayouts = require('express-ejs-layouts');
-app.use(expresslayouts);
-
 //for static css
 app.use(express.static('./assets'));
+
+app.use(expresslayouts);
 
 // this is used to add separate css and js files for different pages
 app.set('layout extractStyles', true);
