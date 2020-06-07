@@ -11,13 +11,21 @@
                 url: '/posts/create',
                 data: newPostForm.serialize(),
                 success: function(data){
+                   
                     let newPost = newPostDom(data.data.post);
                     $('#posts-list-container>ul').prepend(newPost);
                     deletePost($(' .delete-post-button',newPost));
+                    new Noty({
+                        theme: 'sunset',
+                        text: 'Post published!',
+                        type: 'success',
+                        layout: 'topRight',
+                        timeout: 1500
+                    }).show();
                 }, error: function(error){
                     console.log(error.responseText);
                 }  
-            }.done());
+            });
         });
     }
 
@@ -59,6 +67,13 @@
                 url: $(deleteLink).prop('href'),
                 success: function(data){
                     $(`#post-${data.data.post_id}`).remove();
+                    new Noty({
+                        theme: 'sunset',
+                        text: 'Post and associated comments deleted',
+                        type: 'success',
+                        layout: 'topRight',
+                        timeout: 1500
+                    }).show();
                 }, error: function(error){
                     console.log(error.responseText);
                 }

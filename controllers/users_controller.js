@@ -1,5 +1,6 @@
 const User = require('../models/user');
-
+const fs = require('fs');
+const path = require('path');
 module.exports.profile = function(req , res){
     User.findById(req.params.id, function(err,user){
         return res.render('users_profile',{
@@ -32,12 +33,19 @@ module.exports.update = async function(req,res){
                     console.log('*****Multer Error',err);
                     return;
                 }
-                user.name = req.body.name,
+                user.name = req.body.name
                 user.email = req.body.email
                 if(req.file)
                 {
-                    // this is saving the path of the uploaded file into the avatar field in the user
-                    user.avatar = User.avatarPath + '/' + req.file.filename;
+                     if(user.avatar)
+                     { //check if the file exists or not
+                        if (fs.existsSync(path.join(__dirname ,'..',user.avatar))) 
+                        {
+                            fs.unlinkSync(path.join(__dirname ,'..',user.avatar));                  
+                        }
+                     }
+                    // this is saving the path of the uploaded file into the avatar field in the user 
+                    user.avatar = User.avatarPath + '/' + req.file.filename; 
                 }
                 user.save();
                 req.flash('success','Profile Updated');
@@ -54,6 +62,7 @@ module.exports.update = async function(req,res){
     }
 
 }
+
 
 module.exports.signIn = function(req,res){
     //restrict the signin page when user is signed in
@@ -83,7 +92,7 @@ module.exports.create = function(req,res){
         return res.redirect('back');
     }
     User.findOne({email: req.body.email},function(err,user){
-        //Error in finding user in signing up
+        //Error in finding user in signing up 
         if(err){req.flash('error',err); return; }
         if(!user){
             User.create(req.body, function(err,user){
