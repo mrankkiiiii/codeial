@@ -38,9 +38,10 @@ app.use(cookieParser());
 
 //for static css
 app.use(express.static('./assets'));
+//make the uploads path available to the browser
+app.use('/uploads',express.static(__dirname + '/uploads'));
 
 app.use(expresslayouts);
-
 // this is used to add separate css and js files for different pages
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);

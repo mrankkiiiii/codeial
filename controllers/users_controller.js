@@ -40,6 +40,7 @@ module.exports.update = async function(req,res){
                     user.avatar = User.avatarPath + '/' + req.file.filename;
                 }
                 user.save();
+                req.flash('success','Profile Updated');
                 return res.redirect('back');
             });
         }catch (err) {
