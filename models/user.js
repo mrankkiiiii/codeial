@@ -33,7 +33,9 @@ let storage = multer.diskStorage({
     }
   });
 
- 
+// statics method to access everywhere
+userSchema.statics.uploadedAvatar = multer({storage: storage}).single('avatar');
+userSchema.statics.avatarPath = AVATAR_PATH; 
 
 const User = mongoose.model('User', userSchema);
 
