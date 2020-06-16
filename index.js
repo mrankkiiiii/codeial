@@ -13,6 +13,7 @@ const session =require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 const passportJWT = require('./config/passport-jwt-strategy');
+const passportgoogleoath = require('./config/passport-google-oauth2-strategy');
 const MongoStore = require('connect-mongo')(session);
 
 // adding sass module
