@@ -91,7 +91,8 @@
             deletePost(deleteButton);
 
             // get the post's id by splitting the id attribute
-            let postId = self.prop('id').split("-")[1]
+            let postId = self.prop('id').split("_")
+            console.log(postId);
             new PostComments(postId);
         });
     }
