@@ -14,11 +14,11 @@ const likeSchema = new mongoose.Schema({
     onModel: {
         type: String,
         required: true,
-        enum: ['Post', 'Commment']
+        enum: ['Post', 'Comment']
     }
 }, {
     timestamps: true
 });
 
-const Like = mongoose.model('like',likeSchema);
+const Like = mongoose.model('Like',likeSchema);
 module.exports = Like;
