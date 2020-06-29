@@ -17,7 +17,8 @@ module.exports.create = async function(req,res){
     
             post.comments.push(comment);
             post.save();
-            comment=await comment.populate('user', 'name email').execPopulate();
+            comment = await comment.populate('user', 'name email').execPopulate();
+            console.log(comment);
 
             let job = queue.create('emails', comment).save(function(err){
                 if(err)
@@ -70,10 +71,11 @@ module.exports.destroy = async function(req,res){
            return res.redirect('back');
         }
         else{
+            req.flash('error', 'Unauthorized');
             return res.redirect('back');
         }
     } catch (err) {
-        console.log('Error',err);  
+        req.flash('error', err);  
         return;
     }
 }

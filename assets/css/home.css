@@ -3,7 +3,6 @@ main {
 }
 
 main #feed-posts {
-  height: 100vh;
   width: 70%;
   padding: 10px;
 }
