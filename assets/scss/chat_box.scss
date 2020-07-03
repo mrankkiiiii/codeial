@@ -1,0 +1,55 @@
+#user-chat-box{
+    border: 1px solid rebeccapurple;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 350px;
+    width: 300px;
+    padding: 5px;
+    background: whitesmoke;
+    box-shadow: 1px 1px 1px 1px lightgrey;
+    #chat-messages-field{
+        list-style-type: none;
+        padding: 10px;
+	    height: 70%;
+	    background-color: white;
+        overflow: auto;
+        .other-message{
+            text-align: left;
+            padding: 5px;
+            span{
+                // display: inline-block;
+                padding: 15px;
+		    	background-color: #ffa0a0;
+            }
+        }
+        .self-message{
+            text-align: right;
+            padding: 5px;
+            span{
+                // display: inline-block;
+                padding: 15px;
+		    	background-color: #a0dcff;
+            }
+        }
+    }
+
+    #chat-message-input-container{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 24%;
+        #chat-message-input{
+            height: 50%;
+            width: 70%;
+        }
+        #send-message{
+            height: 55%;
+            width: 30%;
+            font-size: 25px;
+            color: white;
+            border: none;
+            background: #58d258;
+        }
+    }
+}
