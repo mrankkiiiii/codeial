@@ -10,7 +10,7 @@
   box-shadow: 1px 1px 1px 1px lightgrey;
 }
 
-#user-chat-box #chat-messages-field {
+#user-chat-box #chat-messages-list {
   list-style-type: none;
   padding: 10px;
   height: 70%;
@@ -18,23 +18,23 @@
   overflow: auto;
 }
 
-#user-chat-box #chat-messages-field .other-message {
+#user-chat-box #chat-messages-list .other-message {
   text-align: left;
   padding: 5px;
 }
 
-#user-chat-box #chat-messages-field .other-message span {
+#user-chat-box #chat-messages-list .other-message span {
   display: inline-block;
   padding: 15px;
   background-color: #ffa0a0;
 }
 
-#user-chat-box #chat-messages-field .self-message {
+#user-chat-box #chat-messages-list .self-message {
   text-align: right;
   padding: 5px;
 }
 
-#user-chat-box #chat-messages-field .self-message span {
+#user-chat-box #chat-messages-list .self-message span {
   display: inline-block;
   padding: 15px;
   background-color: #a0dcff;
