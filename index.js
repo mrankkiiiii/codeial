@@ -1,5 +1,7 @@
 const express = require('express');
 const env = require('./config/environment');
+//to store logs
+const logger = require('morgan');
 // include cookie parser
 const cookieParser = require('cookie-parser');
 const app = express();
@@ -32,13 +34,18 @@ chatServer.listen(5000);
 console.log('chat server listening on port 5000');
 
 const path = require('path');
-app.use(sassMiddleware({
-    src: path.join(__dirname,env.asset_path,'scss'),
-    dest: path.join(__dirname,env.asset_path,'css'),
-    debug: true,
-    outputStyle: 'expanded',
-    prefix: '/css'
-}));
+
+//it should be load when in development only not in production mode
+if(env.name=='development')
+{ 
+    app.use(sassMiddleware({
+        src: path.join(__dirname,env.asset_path,'scss'),
+        dest: path.join(__dirname,env.asset_path,'css'),
+        debug: true,
+        outputStyle: 'expanded',
+        prefix: '/css'
+    }));
+}
 
 
 // app. use is middleware which is used to passed the form data using express
@@ -50,6 +57,10 @@ app.use(cookieParser());
 app.use(express.static(env.asset_path));
 //make the uploads path available to the browser
 app.use('/uploads',express.static(__dirname + '/uploads'));
+
+
+//add the file to index page
+app.use(logger(env.morgan.mode, env.morgan.options));
 
 app.use(expresslayouts);
 // this is used to add separate css and js files for different pages
