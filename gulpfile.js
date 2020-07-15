@@ -6,6 +6,8 @@ const cssnano = require('gulp-cssnano');
 const rev = require('gulp-rev');
 //for js minifying
 const uglify = require('gulp-uglify-es').default;
+//for images minification
+const imagemin = require('gulp-imagemin');
 
 
 gulp.task('css', function(done){
@@ -33,6 +35,22 @@ gulp.task('js', function(done){
     //double start any folder and single start for any file
     gulp.src('./assets/**/*.js')
     .pipe(uglify())
+    .pipe(rev())
+    .pipe(gulp.dest('./public/assets'))
+   
+    .pipe(rev.manifest({
+        cwd: 'public',
+        merge: true
+    }))
+    .pipe(gulp.dest('./public/assets'));
+    done();
+});
+
+gulp.task('images', function(done){
+    console.log('compressing images');
+    //double start any folder and single start for any file
+    gulp.src('./assets/**/*.+(png|jpg|gif|svg|jpeg)')
+    .pipe(imagemin())
     .pipe(rev())
     .pipe(gulp.dest('./public/assets'))
    
