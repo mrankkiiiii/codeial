@@ -32,7 +32,7 @@ const flashMiddleware = require('./config/flash-middleware');
 const chatServer = require('http').Server(app);
 const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
 
-chatServer.listen(5000);
+chatServer.listen(6000);
 console.log('chat server listening on port 5000');
 
 const path = require('path');
