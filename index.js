@@ -7,6 +7,8 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const port = 8000;
 
+require('./config/view-helpers')(app);
+
 // use for adding layout which installed by npm install express-ejs-layouts
 const expresslayouts = require('express-ejs-layouts');
 //include mongoose file
