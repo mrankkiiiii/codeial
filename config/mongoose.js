@@ -3,7 +3,7 @@ const env = require('./environment');
 const mongoose = require('mongoose');
 
 //connection to the database
-mongoose.connect(`mongodb://localhost/${env.db}`,{useCreateIndex: true, useNewUrlParser: true , useUnifiedTopology: true  });
+mongoose.connect(`mongodb://127.0.0.1:27017/${env.db}`,{useCreateIndex: true, useNewUrlParser: true , useUnifiedTopology: true  });
 
 //acquire the connection to check it is successfull
 const db = mongoose.connection;
